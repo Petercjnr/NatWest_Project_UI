@@ -20193,8 +20193,12 @@
 								"value": "*/*"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{baseUrl}}/v2/tools/price-conversion?amount=10.43&id=1765&convert=10000000",
+							"raw": "{{baseUrl}}/v2/tools/price-conversion?amount=10000000&id=3541",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -20206,12 +20210,12 @@
 							"query": [
 								{
 									"key": "amount",
-									"value": "10.43",
+									"value": "10000000",
 									"description": "(Required) An amount of currency to convert. Example: 10.43"
 								},
 								{
 									"key": "id",
-									"value": "1765",
+									"value": "3541",
 									"description": "The CoinMarketCap currency ID of the base cryptocurrency or fiat to convert from. Example: \"1\""
 								},
 								{
@@ -20233,9 +20237,10 @@
 									"disabled": true
 								},
 								{
-									"key": "convert",
-									"value": "10000000",
-									"description": "convert \"10000000\" Guatemalan Quetzal to British pounds"
+									"key": "convert ",
+									"value": "",
+									"description": "convert \"10000000\" Guatemalan Quetzal to British pounds",
+									"disabled": true
 								}
 							]
 						},
@@ -21146,13 +21151,13 @@
 	],
 	"variable": [
 		{
-			"id": "134d7f62-be47-4a52-a22b-cf83e066381b",
+			"id": "83c42d1c-7be1-47e6-9ae8-5ce20106d339",
 			"key": "baseUrl",
 			"value": "https://sandbox-api.coinmarketcap.com",
 			"type": "string"
 		},
 		{
-			"id": "08871496-f05c-432e-83c7-734a37c19936",
+			"id": "c570b97a-a6a4-4770-a5af-852730ccbe04",
 			"key": "API_KEY",
 			"value": "b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c",
 			"type": "string"
