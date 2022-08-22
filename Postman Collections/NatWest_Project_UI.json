@@ -20645,6 +20645,500 @@
 							"body": ""
 						}
 					]
+				},
+				{
+					"name": "Price Conversion GBP to doge coin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e4ff63e4-9dfa-41c2-bfd8-069073b31e10",
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "ca8d2c7d-0b23-4789-96b2-c7547106b3c0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": {
+								"value": "7e33fd7b-90ae-49a4-87a8-d1a574779539",
+								"key": "7e33fd7b-90ae-49a4-87a8-d1a574779539",
+								"in": "header"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"description": "Provide your API Key here",
+								"key": "X-CMC_PRO_API_KEY",
+								"value": "{{API_KEY}}"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v2/tools/price-conversion?amount=10.43&id=1765&convert=10000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v2",
+								"tools",
+								"price-conversion"
+							],
+							"query": [
+								{
+									"key": "amount",
+									"value": "10.43",
+									"description": "(Required) An amount of currency to convert. Example: 10.43"
+								},
+								{
+									"key": "id",
+									"value": "1765",
+									"description": "The CoinMarketCap currency ID of the base cryptocurrency or fiat to convert from. Example: \"1\""
+								},
+								{
+									"key": "symbol",
+									"value": "",
+									"description": "Alternatively the currency symbol of the base cryptocurrency or fiat to convert from. Example: \"BTC\". One \"id\" *or* \"symbol\" is required.",
+									"disabled": true
+								},
+								{
+									"key": "time",
+									"value": "",
+									"description": "Optional timestamp (Unix or ISO 8601) to reference historical pricing during conversion. If not passed, the current time will be used. If passed, we'll reference the closest historic values available for this conversion.",
+									"disabled": true
+								},
+								{
+									"key": "convert_id",
+									"value": "",
+									"description": "Optionally calculate market quotes by CoinMarketCap ID instead of symbol. This option is identical to `convert` outside of ID format. Ex: convert_id=1,2781 would replace convert=BTC,USD in your query. This parameter cannot be used when `convert` is used.",
+									"disabled": true
+								},
+								{
+									"key": "convert",
+									"value": "10000000",
+									"description": "convert \"10000000\" Guatemalan Quetzal to British pounds"
+								}
+							]
+						},
+						"description": "Convert an amount of one cryptocurrency or fiat currency into one or more different currencies utilizing the latest market rate for each currency. You may optionally pass a historical timestamp as `time` to convert values based on historical rates (as your API plan supports). \n  \n  **Please note**: This documentation relates to our updated V2 endpoint, which may be incompatible with our V1 versions. Documentation for deprecated endpoints can be found <a href=\"#tag/deprecated\">here</a>.<br><br>\n**Technical Notes**\n- Latest market rate conversions are accurate to 1 minute of specificity. Historical conversions are accurate to 1 minute of specificity outside of non-USD fiat conversions which have 5 minute specificity. \n- You may reference a current list of all supported cryptocurrencies via the <a href=\"/api/v1/#section/Standards-and-Conventions\" target=\"_blank\">cryptocurrency/map</a> endpoint. This endpoint also returns the supported date ranges for historical conversions via the `first_historical_data` and `last_historical_data` properties.   \n- Conversions are supported in 93 different fiat currencies and 4 precious metals <a href=\"/api/v1/#section/Standards-and-Conventions\" target=\"_blank\">as outlined here</a>. Historical fiat conversions are supported as far back as 2013-04-28.\n- A `last_updated` timestamp is included for both your source currency and each conversion currency. This is the timestamp of the closest market rate record referenced for each currency during the conversion.  \n\n**This endpoint is available on the following <a href=\"https://coinmarketcap.com/api/features\" target=\"_blank\">API plans</a>:**\n- Basic (Latest market price conversions)\n- Hobbyist (Latest market price conversions + 1 month historical)\n- Startup (Latest market price conversions + 1 month historical)\n- Standard (Latest market price conversions + 3 months historical)\n- Professional (Latest market price conversions + 12 months historical)\n- Enterprise (Latest market price conversions + up to 6 years historical)\n\n**Cache / Update frequency:** Every 60 seconds for the lastest cryptocurrency and fiat currency rates.    \n**Plan credit use:** 1 call credit per call and 1 call credit per `convert` option beyond the first.  \n**CMC equivalent pages:** Our cryptocurrency conversion page at [coinmarketcap.com/converter/](https://coinmarketcap.com/converter/).  "
+					},
+					"response": [
+						{
+							"id": "900a7773-45aa-4a25-83b3-c30cace16e7a",
+							"name": "Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Provide your API Key here",
+										"key": "X-CMC_PRO_API_KEY",
+										"value": "{{API_KEY}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/tools/price-conversion?amount=10.43&id=1765",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"tools",
+										"price-conversion"
+									],
+									"query": [
+										{
+											"key": "amount",
+											"value": "10.43"
+										},
+										{
+											"key": "id",
+											"value": "1765"
+										},
+										{
+											"key": "symbol",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "time",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "convert",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "convert_id",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "8777593c-745d-4223-8935-acc2a8a359b8",
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Provide your API Key here",
+										"key": "X-CMC_PRO_API_KEY",
+										"value": "{{API_KEY}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/tools/price-conversion?amount=10.43&id=1765",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"tools",
+										"price-conversion"
+									],
+									"query": [
+										{
+											"key": "amount",
+											"value": "10.43"
+										},
+										{
+											"key": "id",
+											"value": "1765"
+										},
+										{
+											"key": "symbol",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "time",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "convert",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "convert_id",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "b04d6084-5d36-4d7d-b872-0e854cb24dcd",
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Provide your API Key here",
+										"key": "X-CMC_PRO_API_KEY",
+										"value": "{{API_KEY}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/tools/price-conversion?amount=10.43&id=1765",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"tools",
+										"price-conversion"
+									],
+									"query": [
+										{
+											"key": "amount",
+											"value": "10.43"
+										},
+										{
+											"key": "id",
+											"value": "1765"
+										},
+										{
+											"key": "symbol",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "time",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "convert",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "convert_id",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "11ce0294-91f8-48ba-9c4c-07f50dfbafbb",
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Provide your API Key here",
+										"key": "X-CMC_PRO_API_KEY",
+										"value": "{{API_KEY}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/tools/price-conversion?amount=10.43&id=1765",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"tools",
+										"price-conversion"
+									],
+									"query": [
+										{
+											"key": "amount",
+											"value": "10.43"
+										},
+										{
+											"key": "id",
+											"value": "1765"
+										},
+										{
+											"key": "symbol",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "time",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "convert",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "convert_id",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "1700d8a1-8403-43da-8801-686d00656883",
+							"name": "Too Many Requests",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Provide your API Key here",
+										"key": "X-CMC_PRO_API_KEY",
+										"value": "{{API_KEY}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/tools/price-conversion?amount=10.43&id=1765",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"tools",
+										"price-conversion"
+									],
+									"query": [
+										{
+											"key": "amount",
+											"value": "10.43"
+										},
+										{
+											"key": "id",
+											"value": "1765"
+										},
+										{
+											"key": "symbol",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "time",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "convert",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "convert_id",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						},
+						{
+							"id": "0e0674f8-b499-4375-875b-da8f4bf3dd84",
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Provide your API Key here",
+										"key": "X-CMC_PRO_API_KEY",
+										"value": "{{API_KEY}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v2/tools/price-conversion?amount=10.43&id=1765",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v2",
+										"tools",
+										"price-conversion"
+									],
+									"query": [
+										{
+											"key": "amount",
+											"value": "10.43"
+										},
+										{
+											"key": "id",
+											"value": "1765"
+										},
+										{
+											"key": "symbol",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "time",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "convert",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "convert_id",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
 				}
 			],
 			"id": "7db9a51c-e75f-44b7-a7cb-5144e26a7df1"
@@ -20652,13 +21146,13 @@
 	],
 	"variable": [
 		{
-			"id": "24f24b77-5796-4ad2-843d-4cd1f24a7705",
+			"id": "134d7f62-be47-4a52-a22b-cf83e066381b",
 			"key": "baseUrl",
 			"value": "https://sandbox-api.coinmarketcap.com",
 			"type": "string"
 		},
 		{
-			"id": "f86d9725-52f1-4899-8bc7-aab2f734d721",
+			"id": "08871496-f05c-432e-83c7-734a37c19936",
 			"key": "API_KEY",
 			"value": "b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c",
 			"type": "string"
